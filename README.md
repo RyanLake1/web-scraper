@@ -18,8 +18,10 @@ Inspected the page, saw that the story was contained in simple paragraphs. This 
 
  - There were some pages that had different organization styles or images, like the Odysseus stories, but I'll look at those later.
 
+View in editor
+
 This page had it's story all stored in <div id="page-content">, with the page's title in <div id="page-title">, both of which are children of <div id="main-content">.
-The on-page title and series info were stored right before the paragraphs under a <div style="text-align: center;">, and looks like this (view in editor): 
+The on-page title and series info were stored right before the paragraphs under a <div style="text-align: center;">, and looks like this: 
 [
 <div class="meta-title">
 <p>A Betamax Suicide Note</p>
