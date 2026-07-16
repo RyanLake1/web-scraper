@@ -33,3 +33,5 @@ if response.status_code == 200:
     print(f"Successfully scraped {len(scraped_data)} items!")
 else:
     print(f"Failed to access site. Status code: {response.status_code}")
+
+# AI generated shell for a rough guideline

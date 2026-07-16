@@ -37,4 +37,4 @@ The on-page title and series info were stored right before the paragraphs under 
 This included the title under class meta-title, a link to the series page under class pseudocrumbs, the date of the story under id toc0, and a location under id toc1.
 Then I want characters and tags.
 Characters will be difficult, as they have multiple names and can be referred to differently throughout a story, so I'll ignore that until I can get everything else.
-Tags are under page-content in <div class="page-tags">, and then listed out in a span as hrefs.
+Tags are under page-content in <div class="page-tags"><span><a href="tag_link">tag_name</a></span></div>, and then listed out in a span as hrefs.
