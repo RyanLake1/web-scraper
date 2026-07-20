@@ -19,6 +19,8 @@ connect.execute("PRAGMA foreign_keys = ON;")
 # """)
 # connect.commit()
 
+
+
 # implement a catch for:
 #   sqlite3.IntegrityError: UNIQUE constraint failed: scp_stories.link
 # if you are inserting information for the same link
@@ -79,6 +81,15 @@ connect.close()
 #         id INTEGER PRIMARY KEY,
 #         story_link TEXT NOT NULL,
 #         character TEXT NOT NULL,
+#         FOREIGN KEY (story_link) REFERENCES scp_stories(link)
+#     )
+# """)
+# change 'character' to 'poi'? ^^^ More on brand for this.
+# cursor.execute("""
+#     CREATE TABLE story_to_scp (
+#         id INTEGER PRIMARY KEY,
+#         story_link TEXT NOT NULL,
+#         scp TEXT NOT NULL,
 #         FOREIGN KEY (story_link) REFERENCES scp_stories(link)
 #     )
 # """)
