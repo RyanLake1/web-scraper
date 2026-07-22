@@ -1,0 +1,43 @@
+TABLE scp_stories (
+        link TEXT PRIMARY KEY,    # base site is https://scp-wiki.wikidot.com
+        title TEXT, 
+        author TEXT, 
+        series_hub_link TEXT      # base site is https://scp-wiki.wikidot.com
+)
+NOTES**** base site is https://scp-wiki.wikidot.com don't store it, only store the path
+
+TABLE story_to_date (
+        id INTEGER PRIMARY KEY,
+        story_link TEXT NOT NULL,
+        date TEXT NOT NULL,
+        FOREIGN KEY (story_link) REFERENCES scp_stories(link)
+)
+
+TABLE story_to_tag (
+        id INTEGER PRIMARY KEY,
+        story_link TEXT NOT NULL,
+        tag TEXT NOT NULL,
+        FOREIGN KEY (story_link) REFERENCES scp_stories(link)
+)
+
+TABLE story_to_location (
+        id INTEGER PRIMARY KEY,
+        story_link TEXT NOT NULL,
+        location TEXT NOT NULL,
+        FOREIGN KEY (story_link) REFERENCES scp_stories(link)
+)
+
+TABLE story_to_character (
+        id INTEGER PRIMARY KEY,
+        story_link TEXT NOT NULL,
+        character TEXT NOT NULL,
+        FOREIGN KEY (story_link) REFERENCES scp_stories(link)
+)
+change 'character' to 'poi'? ^^^ More on brand for this.
+
+TABLE story_to_scp (
+        id INTEGER PRIMARY KEY,
+        story_link TEXT NOT NULL,
+        scp TEXT NOT NULL,
+        FOREIGN KEY (story_link) REFERENCES scp_stories(link)
+)

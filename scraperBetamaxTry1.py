@@ -20,19 +20,28 @@ if response.status_code == 200:
     series_hub_link = soup.find(class_="pseudocrumbs").find("a").get('href')
     author = soup.find("div", id="page-content").find(class_="collection").find(class_="collapsible-block-unfolded").find(class_="namerow").find(class_="list-pages-item").text.strip()
     author = author[:-8]
+    date = soup.find(id="toc0").text.strip()
     URL = URL.replace("https://scp-wiki.wikidot.com", "")
-        
+    
+    # date and location are saved in id="toc0" and id="toc1" respectively, which I would guess is not consistent site-wide
+
     # Save extracted data into scraped.db
     connect = sqlite3.connect("scraped.db")
     cursor = connect.cursor()
 
+    # cursor.execute("""
+    #     INSERT INTO scp_stories VALUES
+    #         (?, ?, ?, ?)
+    # """, (URL, title, author, series_hub_link))
+    # connect.commit()
+
     cursor.execute("""
-        INSERT INTO scp_stories VALUES
-            (?, ?, ?, ?)
-    """, (URL, title, author, series_hub_link))
+        INSERT INTO story_to_date (story_link, date) VALUES
+            (?, ?)
+    """, (URL, date))
     connect.commit()
         
-    print(f"Successfully scraped {URL} URL!")
+    print(f"Successfully scraped {date} date!")
 
     # scraped and added to database, next time test to make sure can retrieve content
 

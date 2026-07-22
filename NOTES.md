@@ -51,6 +51,8 @@ or at least being able to read them in a chronological order.
 
 So that is the main goal and issue.
 
+Look at implementingTimeline.md in the doctor_kondraki folder for my thought process.
+
 
 Potential tables:
 # Character table (persons of interest):
